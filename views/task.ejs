@@ -11,8 +11,9 @@
         <h1>Task Manager</h1>
 
         <div class="nav-links">
-            <a href="/completed" class="button">View Completed</a>
-            <a href="/unfinished" class="button">View Unfinished</a>
+            <a href="/completed">View Completed</a>
+            <a href="/unfinished">View Unfinished</a>
+            <a href="/all-tasks">View All Tasks</a>
         </div>
 
         <form action="/add-task" method="post">
@@ -25,16 +26,44 @@
             <% tasks.forEach(task => { %>
                 <li class="<%= task.completed ? 'completed' : '' %>">
                     <%= task.name %> - <%= task.description %>
-                    <form action="/toggle-task/<%= task.id %>" method="post" style="display:inline;">
-                        <button type="submit">Complete</button>
-                    </form>
-                    <form action="/delete-task/<%= task.id %>" method="post" style="display:inline;">
-                        <button type="submit">Delete</button>
-                    </form>
-                    
+                    <div class="task-actions">
+                        <form action="/toggle-task/<%= task.id %>" method="post">
+                            <button type="submit"><%= task.completed ? 'Undo' : 'Complete' %></button>
+                        </form>
+                        <form action="/delete-task/<%= task.id %>" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                        <button onclick="showUpdateForm('<%= task.id %>', '<%= task.name %>', '<%= task.description %>')">Update</button>
+                    </div>
                 </li>
             <% }); %>
         </ul>
+
+        <!-- Hidden Update Form -->
+        <div id="updateFormContainer" style="display: none;">
+            <h2>Update Task</h2>
+            <form id="updateForm" method="post">
+                <input type="hidden" name="id" id="updateTaskId">
+                <input type="text" name="name" id="updateTaskName" required>
+                <input type="text" name="description" id="updateTaskDesc" required>
+                <button type="submit">Update</button>
+                <button type="button" onclick="hideUpdateForm()">Cancel</button>
+            </form>
+        </div>
+
+        <script>
+            function showUpdateForm(id, name, description) {
+                document.getElementById("updateForm").action = "/update-task/" + id;
+                document.getElementById("updateTaskId").value = id;
+                document.getElementById("updateTaskName").value = name;
+                document.getElementById("updateTaskDesc").value = description;
+                document.getElementById("updateFormContainer").style.display = "block";
+            }
+
+            function hideUpdateForm() {
+                document.getElementById("updateFormContainer").style.display = "none";
+            }
+        </script>
     </div>
 </body>
 </html>

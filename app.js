@@ -8,7 +8,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(process.cwd(), "public")));
 
-// Corrected EJS setup
 app.set("view engine", "ejs");
 app.set("views", path.join(process.cwd(), "views"));
 
@@ -21,7 +20,6 @@ const loggingMiddleware = (req, res, next) => {
 app.use(loggingMiddleware);
 app.use("/", routes);
 
-// Fix 404 handler to render a proper EJS page
 app.use((req, res) => {
     res.status(404).render("404", { title: "Page Not Found" });
 });

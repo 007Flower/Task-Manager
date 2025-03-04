@@ -1,9 +1,7 @@
 /* Global styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
+background-image: url("Image.jpg");
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,19 +10,20 @@ body {
 
 /* Container */
 .container {
-  background: #fff;
-  width: 400px;
+  background-image: url("Image2.jpg");
+  width: 550px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+  height: auto;
 }
 
 /* Title */
 h1 {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 20px;
-  color: #333;
+  color: black;
 }
 
 /* Form */
@@ -32,7 +31,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 input {
@@ -43,8 +42,8 @@ input {
 }
 
 button {
-  background: #4CAF50;
-  color: white;
+  background: purple;
+  color: black;
   border: none;
   padding: 10px;
   border-radius: 5px;
@@ -54,7 +53,7 @@ button {
 }
 
 button:hover {
-  background: #45a049;
+  background: red;
 }
 
 /* Task List */
@@ -64,7 +63,7 @@ ul {
 }
 
 li {
-  background: #f9f9f9;
+  background: darkorange;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -92,13 +91,14 @@ li {
 /* Completed Task */
 .completed {
   text-decoration: line-through;
-  color: gray;
+  color: black;
 }
 
 .nav-links {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .nav-links a {
@@ -106,11 +106,11 @@ li {
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 16px;
-  background-color: #337ab7;
-  color: white;
+  background-color:blueviolet;
+  color: black;
   transition: 0.3s;
 }
 
 .nav-links a:hover {
-  background-color: #23527c;
+  background-color: darkorange;
 }
