@@ -1,0 +1,116 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  background: #fff;
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Title */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+/* Task List */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Task Actions */
+.task-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.task-actions form {
+  margin: 0;
+}
+
+.task-actions button {
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+/* Completed Task */
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #337ab7;
+  color: white;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #23527c;
+}

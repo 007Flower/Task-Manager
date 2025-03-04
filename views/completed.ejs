@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completed Tasks</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Completed Tasks ✅</h1>
+        <ul>
+            <% completedTasks.forEach(task => { %>
+                <li class="completed">
+                    <%= task.name %> - <%= task.description %>
+                    <form action="/toggle-task/<%= task.id %>" method="post" style="display:inline;">
+                        <button type="submit">Undo</button>
+                    </form>
+                    <form action="/delete-task/<%= task.id %>" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+        <a href="/">Back to All Tasks</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Task Manager</h1>
+
+        <div class="nav-links">
+            <a href="/completed" class="button">View Completed</a>
+            <a href="/unfinished" class="button">View Unfinished</a>
+        </div>
+
+        <form action="/add-task" method="post">
+            <input type="text" name="name" placeholder="Task Name" required>
+            <input type="text" name="description" placeholder="Task Description" required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <ul>
+            <% tasks.forEach(task => { %>
+                <li class="<%= task.completed ? 'completed' : '' %>">
+                    <%= task.name %> - <%= task.description %>
+                    <form action="/toggle-task/<%= task.id %>" method="post" style="display:inline;">
+                        <button type="submit"><%= task.completed ? "Undo" : "Complete" %></button>
+                    </form>
+                    <form action="/delete-task/<%= task.id %>" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</body>
+</html>
