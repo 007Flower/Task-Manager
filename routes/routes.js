@@ -3,7 +3,7 @@ import express from "express";
 const router = express.Router();
 
 let tasks = [];
-let taskId = 1;
+let Id = 1;
 
 router.get("/", (req, res) => {
     res.render("task", { tasks });
@@ -27,7 +27,7 @@ router.post("/add-task", (req, res) => {
         return res.status(400).send({ message: "Name and description are required" });
     }
 
-    const newTask = { id: taskId++, name, description, completed: false };
+    const newTask = { id: Id++, name, description, completed: false };
     tasks.push(newTask);
     res.redirect("/");
 });
@@ -38,7 +38,7 @@ router.post("/toggle-task/:id", (req, res) => {
     if (!task) {
         return res.status(404).send({ message: "Task not found" });
     }
-    task.completed = !task.completed;
+    task.completed = true;
     res.redirect("/");
 });
 
